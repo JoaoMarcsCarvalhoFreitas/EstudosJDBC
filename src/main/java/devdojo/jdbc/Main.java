@@ -15,11 +15,12 @@ public class Main {
 
         //List<Producer> pr = ProducerService.findAll();
 
-        List<Producer> pr = ProducerService.findByName("MAP");
+//        List<Producer> pr = ProducerService.findByName("MAP");
+//
+//        for (Producer produce : pr) {
+//            System.out.println(produce);
+//        }
 
-        for (Producer produce : pr) {
-            System.out.println(produce);
-        }
-
+        ProducerService.showTypeScrollWorking();
     }
 }

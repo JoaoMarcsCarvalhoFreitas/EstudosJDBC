@@ -37,4 +37,8 @@ public class ProducerService {
             ProcuderRepository.update(name, id);
         }
     }
+
+    public static void showTypeScrollWorking(){
+        ProcuderRepository.showTypeScrollWorking();
+    }
 }

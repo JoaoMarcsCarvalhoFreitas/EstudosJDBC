@@ -97,4 +97,35 @@ public class ProcuderRepository {
 
         return producers;
     }
+
+
+    public static void showTypeScrollWorking(){
+
+        String sql = "SELECT * FROM anime_store.Producer;";
+
+        try(Connection conn = ConnectionFactory.getConnection();
+            Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = stmt.executeQuery(sql)) {
+
+            System.out.println("is last? %s".formatted(rs.last()));
+            System.out.println("What row number? %s".formatted(rs.getRow()));
+
+            Producer p = new Producer(rs.getInt("idProducer"), rs.getString("nameProducer"));
+
+            System.out.println(p);
+//
+//            rs.relative(-1);
+//            rs.previous();
+//            rs.first();
+//            System.out.println(rs.getRow());
+//
+//            Producer p1 = new Producer(rs.getInt("idProducer"), rs.getString("nameProducer"));
+//
+//            System.out.println(p1);
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+    }
 }
